@@ -1,4 +1,4 @@
-let Url = "https://puce-attractive-bat.cyclic.app/"
+let Url = "https://light-fawn-pea-coat.cyclic.app/"
 
 UpdateNav()
 DisplayProduct(Url)
