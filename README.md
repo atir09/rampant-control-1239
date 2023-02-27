@@ -13,10 +13,6 @@
 
 
 
-
-
-
-
 ## Features
 
 - Login and Sign up 
@@ -43,33 +39,32 @@
 
 ## Home Page
 
-
-![image](https://drive.google.com/file/d/1SdkJBPzELZUrjqLEH7B2Ii9ZtFOGX_uj/view?usp=share_link)
-
-
+![image](https://drive.google.com/uc?export=view&id=1SdkJBPzELZUrjqLEH7B2Ii9ZtFOGX_uj)
 
 
 ## Product Page
 
-![image](https://drive.google.com/file/d/1sbxDTbwr1_C-L8A2psE4LVU5sc71mTgE/view?usp=sharing)
+![image](https://drive.google.com/uc?export=view&id=1sbxDTbwr1_C-L8A2psE4LVU5sc71mTgE)
 
 
 ## Single Product Page
 
-![image](https://drive.google.com/file/d/1ZrIhBIkcS0pcSH7e6G0FHicV2hkBh3H2/view?usp=share_link)
+![image](https://drive.google.com/uc?export=view&id=1ZrIhBIkcS0pcSH7e6G0FHicV2hkBh3H2)
 
 
 
-##Admin Site
+## Admin Site
 
-![image](https://drive.google.com/file/d/1e7GlQgBcsPM-9rrINxzuDhXQN0iOGv6W/view?usp=sharing)
-
-
-##Admin Site(Users)
-
-![image](https://drive.google.com/file/d/1KGJf3EreLggvA_MN6Rrlqoz3QcUwWWtU/view?usp=share_link)
+![image](https://drive.google.com/uc?export=view&id=1e7GlQgBcsPM-9rrINxzuDhXQN0iOGv6W)
 
 
-##Admin Site(Products)
+## Admin Site(Users)
 
-![image](https://drive.google.com/file/d/1257yn4psTeo7clWlcdW3FkRQQ1LZjvpz/view?usp=share_link)
+1KGJf3EreLggvA_MN6Rrlqoz3QcUwWWtU
+![image](https://drive.google.com/uc?export=view&id=1e7GlQgBcsPM-9rrINxzuDhXQN0iOGv6W)
+
+
+## Admin Site(Products)
+
+1257yn4psTeo7clWlcdW3FkRQQ1LZjvpz
+![image](https://drive.google.com/uc?export=view&id=1e7GlQgBcsPM-9rrINxzuDhXQN0iOGv6W)
