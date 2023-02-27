@@ -60,11 +60,10 @@
 
 ## Admin Site(Users)
 
-1KGJf3EreLggvA_MN6Rrlqoz3QcUwWWtU
-![image](https://drive.google.com/uc?export=view&id=1e7GlQgBcsPM-9rrINxzuDhXQN0iOGv6W)
+![image](https://drive.google.com/uc?export=view&id=1KGJf3EreLggvA_MN6Rrlqoz3QcUwWWtU)
 
 
 ## Admin Site(Products)
 
-1257yn4psTeo7clWlcdW3FkRQQ1LZjvpz
-![image](https://drive.google.com/uc?export=view&id=1e7GlQgBcsPM-9rrINxzuDhXQN0iOGv6W)
+
+![image](https://drive.google.com/uc?export=view&id=1257yn4psTeo7clWlcdW3FkRQQ1LZjvpz)
