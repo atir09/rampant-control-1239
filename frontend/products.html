@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautify</title>
+    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/utility.css">
+    <link rel="stylesheet" href="./styles/product.css">
+    <script src="https://kit.fontawesome.com/84b484b925.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <div id="logoC">
+                <a href="index.html"><img src="./img/Beautify-logo.png" alt=""></a>
+            </div>
+            <div class="container">
+                <div class="searchInput">
+                    <div class="icon"><i class="fas fa-search"></i></div>
+                    <input id="search" type="text" placeholder="Makeup">
+                    <div class="resultBox">
+                        <!-- here suggestion will appear -->
+                    </div>
+                </div>
+            </div>
+            <div id="nav_options">
+                <div>
+                    <i class="fas fa-store"></i>
+                    <div style="display: flex; flex-direction: column;">
+                        <p>Stores And Services</p>
+                        <p style="font-size: small;">Choose a Store</p>
+                    </div>
+                </div>
+                <div>
+                    <i class="fas fa-users"></i>
+                    <p>Community</p>
+                </div>
+                <hr>
+                <div id="sign">
+                    <i class="fa-solid fa-user"></i>
+                    <p id="signText" class="">Sign Up</p>
+                </div>
+                <section class="loggedIn" id="loggedIn" style="display: none; position: relative;">
+                    <i class="fa-solid fa-user"></i>
+                    <div>
+                        <p>Hi,</p>
+                        <p class="username"></p>
+                    </div>
+                    <div id="logoutPopup" style="display: none;">
+                        <button id="logout">Logout</button>
+                    </div>
+                </section>
+            </div>
+            <div id="nav_options2">
+                <div id="like">
+                    &#10084;
+                </div>
+                <div id="cart">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="signup-popup popupHide">
+        <div>
+            <div class="header">
+                <h1>Create an Account</h1>
+                <h3 id="SignUpResMsg " class="red hide"></h3>
+            </div>
+            <form id="signupForm">
+                <div class="input">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Name" name="name" />
+                    <p id="nameAlert" class="ValidationAlert"></p>
+                </div>
+                <div class="input">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" placeholder="Email" name="email" />
+                    <p id="emailAlert" class="ValidationAlert"></p>
+                </div>
+                <div class="input">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" name="password" />
+                    <p id="passwordAlert" class="ValidationAlert"></p>
+                </div>
+                <div class="input">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Confirm Password" name="confirmPass" />
+                    <p id="confirmPassAlert" class="ValidationAlert"></p>
+                </div>
+                <input class="signup-btn" id="signup-btn" type="submit" value="SIGN UP" />
+            </form>
+            <p>Already have an account? <a id="log">Log in</a></p>
+        </div>
+    </div>
+
+    <div id="fade" class="black_overlay"></div>
+
+    <!-- ..............................login Form..................................... -->
+
+    <div class="login-popup popupHide">
+        <div>
+            <div class="header">
+                <h1>Login</h1>
+                <h3 id="loginResMsg" class="hide red">Not bale to</h3>
+            </div>
+            <form id="loginForm">
+                <div class="input">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input name="email" type="email" placeholder="Email" />
+                </div>
+                <div class="input">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password" />
+                </div>
+                <input class="login-btn" type="submit" value="Login" />
+            </form>
+            <p>New User?<a id="sign2"> Sign Up</a></p>
+        </div>
+    </div>
+
+    <section id="display" >
+        <div id="filterSec">
+            <h2 style="font-weight: bold; margin-bottom: 25px;">Makeup</h2>
+            <p style="font-size: small; margin-bottom: 20px;">Filters</p>
+
+            <div class="category">
+                <span class="small">Category</span>
+                <div style="display: flex"><input type="checkbox" name="Foundation" id="Foundation" value="Foundation"
+                        checked>
+                    <p>Foundation</p>
+                </div>
+                <div style="display: flex;"><input type="checkbox" name="Lipstick" id="Lipstick" value="Lipstick"
+                        checked>
+                    <p>Lipstick</p>
+                </div>
+                <div style="display: flex;"><input type="checkbox" name="Eyeliner" id="Eyeliner" value="Eyeliner"
+                        checked>
+                    <p>Eyeliner</p>
+                </div>
+                <button id="filterbyCategory">Apply</button>
+            </div>
+
+            <div class="brand">
+                <span class="small">Brand</span>
+                
+                    <div style="display: flex;"><input type="checkbox" name="RBSG" id="RBSG"
+                        value="Rare Beauty by Selena Gomez" checked>
+                    <label>Rare Beauty by Selena</label>
+                </div>
+                <div style="display: flex;"><input type="checkbox" name="FB" id="FB" value="Fenty Beauty by Rihanna"
+                        checked>
+                    <label>Fenty Beauty by Rihanna</label>
+                </div>
+                <div style="display: flex;"><input type="checkbox" name="Gucci" id="Gucci" value="Gucci" checked>
+                    <label>Gucci</label>
+                </div>
+                <div style="display: flex;"><input type="checkbox" name="Dior" id="Dior" value="Dior" checked>
+                    <label>Dior</label>
+                </div>
+                <div style="display: flex;"><input type="checkbox" name="SC" id="SC" value="SEPHORA COLLECTION" checked>
+                    <label>SEPHORA COLLECTION</label>
+                </div>
+                <button id="filterbyBrand">Apply</button>
+            </div>
+
+
+            <div class="price">
+                <span class="small">Price</span>
+                <div style="display: flex"><input type="checkbox" name="under20" id="under20" value="20" checked>
+                    <p>Under $20</p>
+                </div>
+                <div style="display: flex;"><input type="checkbox" name="b20-30" id="b20-30" value="b20-30" checked>
+                    <p>$20-$30</p>
+                </div>
+                <div style="display: flex;"><input type="checkbox" name="b30-50" id="b30-50" value="b30-50" checked>
+                    <p>$30-50</p>
+                </div>
+                <div style="display: flex;"><input type="checkbox" name="above50" id="above50" value="50" checked>
+                    <p>Above $50</p>
+                </div>
+                <button id="filterbyPrice">Apply</button>
+            </div>
+
+        </div>
+
+        <!-- /////////////////////////////..................Product Section ........./////////////////////////////// -->
+        <div id="productsSec" >
+            
+        </div>
+
+    </section>
+
+
+</body>
+<script src="./script/products.js"></script>
+
+</html>

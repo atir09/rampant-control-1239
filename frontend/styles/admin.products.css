@@ -1,0 +1,267 @@
+.main{
+    position: relative;
+}
+
+
+
+
+.addNewProduct {
+    padding: 8px 8px;
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}
+
+.updateBtn {
+    padding: 6px 6px;
+    background: #e9b10a;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}
+
+.deleteBtn {
+    padding: 6px 6px;
+    background: red;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+
+}
+
+.card {
+    /* border: 1px solid red; */
+    width: 180px;
+    padding: 0px 5px;
+    margin: 5px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.card:hover {
+    border: 1px solid darkblue;
+}
+
+
+.imgContainer {
+    text-align: center;
+    padding: 10px 0px 15px 0px;
+    height: 132px;
+}
+
+.card img {
+    width: 60%;
+}
+
+.productBrand {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    width: 170px;
+    height: 17px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.title {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.card .title {
+    font-size: 15px;
+    margin-bottom: 5px;
+    width: 170px;
+    height: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis
+
+}
+
+.productPrice {
+    margin-top: 5px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+/* /////////////////////////////...................Update Popup......................../////////////////////////////////// */
+
+
+
+:root {
+    --color-1: #9BE3DE;
+    --color-2: #BEEBE9;
+    --color-3: #FFFDF9;
+    --color-4: #FFE3ED;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contentPopUp {
+    width: 35rem;
+    height: 26rem;
+    background-color: var(--color-2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+}
+
+#popupdiv {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+#Newpopupdiv {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.backgroundPopUp {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+
+.buttonInPopUp {
+    width: 30%;
+    height: 3rem;
+    outline: none;
+    border: none;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    background-color: var(--color-1);
+    position: relative;
+    box-shadow: #9BE3DE 0px 0px 10px 0px;
+    /* box-shadow: inset 0px 0px 10px 0px #a5efea; */
+    transition: all 0.4s ease-in-out;
+}
+
+.buttonInPopUp:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), inset 0px 0px 10px 0px #a5efea;
+    transition: all 0.4s ease-in-out;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    /* margin: 1em; */
+    padding: 10px;
+    /* border: 1px solid red; */
+}
+
+.buttonForPopUp {
+    
+}
+
+.buttonForPopUp:hover {
+    transform: translate(-7px, -7px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease-in-out;
+}
+
+.inputDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* ////////.........................................................................................///////////////. */
+
+
+
+#product-update{
+    width: 100%;
+}
+
+.flex{
+    display: flex;
+  }
+  
+  .center {
+    /* border: 1px solid red; */
+    justify-content: space-between;
+  }
+  
+  .input1,
+  .input2 {
+    float: right;
+    width: 48%;
+    margin-bottom: 10px;
+    /* border: 1px solid red; */
+
+  }
+  
+  .input1 label,
+  .input2 label {
+    display: block;
+    margin-top: 10px;
+    height: 40px;
+    line-height: 40px;
+  }
+  
+  .input1 input,
+  select,
+  .input2 input {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    padding: 10px;
+  }
+  
+  .cancelBtn{
+    background: red
+    ;
+  }
+  
+
+  .finalUpdateBtn{
+    background: #e9b10a;
+  }
+
+
+  .finalAddBtn{
+    background: green;
+  }
+
+  #productsSec{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 20px
+}

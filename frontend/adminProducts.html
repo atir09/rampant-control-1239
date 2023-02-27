@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautify-Admin</title>
+    <link rel="stylesheet" href="./styles/admin.css">
+    <script src="https://kit.fontawesome.com/84b484b925.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/admin.products.css">
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <!-- <ion-icon name="logo-apple"></ion-icon> -->
+                            <img class="logo" src="./img/b-logo-removebg-preview.png" alt="">
+                        </span>
+                        <span class="title"><img src="./img/Beautify-logo.png" alt=""></span>
+
+                    </a>
+                </li>
+
+                <li>
+                    <a href="admin.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="adminUsers.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Users</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="adminProducts.html">
+                        <span class="icon">
+                            <ion-icon name="pricetags-outline"></ion-icon>
+                        </span>
+                        <span class="title">Products</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="SignOut()">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+            </div>
+
+
+            <!-- ================ Order Details List ================= -->
+            <div class="details" style="position: relative;">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Products</h2>
+                        <button class="addNewProduct" onclick="openAddProduct()">Add new Product</button>
+                    </div>
+
+                    <div id="productsSec" >
+            
+                    </div>
+
+                </div>
+
+                <div id="Newpopupdiv" style="display: none;">
+                    <div class="backgroundPopUp" onClick="HideAddNew()">
+                    </div>
+                    <div class="contentPopUp" style="height: 32rem">
+                        <div class="content">
+                            <h1>Add New Product</h1>
+                            <form class="flex center" id="product-add">
+                                <div class="input2">
+                                  <label for="productTitle">Product Title</label>
+                                  <input type="text" name="productTitle" id="productTitle" placeholder="Product Title" >
+                                  <label for="productBrand">Product Brand</label>
+                                  <input type="text" name="productBrand" id="productBrand" placeholder="Product Brand" >
+                                  <label for="price">Price</label>
+                                  <input type="number" name="price" id="price" placeholder="Price" >
+                                  <label for="category">Category</label>
+                                  <input type="text" name="category" id="category" placeholder="Category" >
+                                </div>
+                                <div class="input2">
+                                  <label for="image1">Main Image</label>
+                                  <input type="text" name="image1" id="mainImg" placeholder="Image-1" >
+                                  <label for="image2">Image-2</label>
+                                  <input type="text" name="image2" id="image_2" placeholder="Image-2">
+                                  <label for="image3">Image-3</label>
+                                  <input type="text" name="image3" id="image_3" placeholder="Image-3">
+                                  <!-- <label for="image4">Image-4</label>
+                                  <input type="text" name="image4" id="image_4" placeholder="Image-4">
+                                  <label for="image5">Image-5</label>
+                                  <input type="text" name="image5" id="image_5" placeholder="Image-5"> -->
+                                </div>
+                              </form>
+                        </div>
+                        <div style="display: flex;justify-content: space-between;">
+                            <input type="button" class="buttonInPopUp cancelBtn" value="Cancel" onClick="Hide()" />
+                            <input  type="button" class="buttonInPopUp finalAddBtn" value="Add" onClick="Add()" />
+                        </div>
+                    </div>
+            
+                </div>
+
+
+
+                <div id="popupdiv" style="display: none;">
+                    <div class="backgroundPopUp" onClick="Hide()">
+                    </div>
+                    <div class="contentPopUp">
+                        <div class="content">
+                            <h1>Upate Product</h1>
+                            <form class="flex center" id="product-update">
+                                <div class="input2">
+                                  <label for="productTitle">Product Title</label>
+                                  <input type="text" name="productTitle" id="productTitle" placeholder="Product Title" >
+                                  <label for="productBrand">Product Brand</label>
+                                  <input type="text" name="productBrand" id="productBrand" placeholder="Product Brand" >
+                                  <label for="price">Price</label>
+                                  <input type="number" name="price" id="price" placeholder="Price" >
+                                </div>
+                                <div class="input2">
+                                  <label for="image1">Main Image</label>
+                                  <input type="text" name="image1" id="mainImg" placeholder="Image-1" >
+                                  <label for="image2">Image-2</label>
+                                  <input type="text" name="image2" id="image_2" placeholder="Image-2">
+                                  <label for="image3">Image-3</label>
+                                  <input type="text" name="image3" id="image_3" placeholder="Image-3">
+                                  <!-- <label for="image4">Image-4</label>
+                                  <input type="text" name="image4" id="image_4" placeholder="Image-4">
+                                  <label for="image5">Image-5</label>
+                                  <input type="text" name="image5" id="image_5" placeholder="Image-5"> -->
+                                </div>
+                              </form>
+                        </div>
+                        <div style="display: flex;justify-content: space-between;">
+                            <input type="button" class="buttonInPopUp cancelBtn" value="Cancel" onClick="Hide()" />
+                            <input  type="button" class="buttonInPopUp finalUpdateBtn" value="Update" onClick="Update(this)" />
+                        </div>
+                    </div>
+            
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="./script/admin.js"></script>
+<script src="./script/admin.product.js"></script>
+
+</html>

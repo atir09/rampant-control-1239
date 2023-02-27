@@ -1,0 +1,648 @@
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-9');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica 25 UltraLight', sans-serif;
+  font-weight: lighter;
+}
+
+p {
+  font-weight: lighter;
+  font-size: 1em;
+}
+
+.hide{
+  display: none;
+}
+/* .........................Nav Bar................................. */
+
+.nav {
+  display: flex;
+  padding: 15px 20px;
+  background-color: rgb(245, 218, 223);
+  /* background-color: rgb(192, 220, 241); */
+  /* align-items: center; */
+  z-index: 1000;
+}
+.sticky{
+  position: fixed;
+  top:0;
+}
+
+#logoC {
+  width: 9%;
+  min-width: 80px;
+  margin-right: 2.5em;
+
+}
+
+#logoC img {
+  width: 100%;
+  /* display: block;
+    margin: auto; */
+}
+
+
+/* .....................Search Input in Nav....................................... */
+
+.container {
+  width: 30%;
+  max-width: 750px;
+  min-width: 150px;
+  margin: auto 0;
+}
+
+.container .searchInput {
+  background: #fff;
+  width: 100%;
+  border-radius: 25px;
+  position: relative;
+  box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+}
+
+.searchInput input {
+  height: 35px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  padding: 0 60px 0 40px;
+  font-size: 18px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.searchInput.active input {
+  border-radius: 5px 5px 0 0;
+}
+
+.searchInput .resultBox {
+  width: 100%;
+  max-width: 750px;
+  min-width: 150px;
+  position: absolute;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 280px;
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.searchInput.active .resultBox {
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+
+}
+
+.resultBox li {
+  list-style: none;
+  padding: 8px 12px;
+  display: none;
+  width: 100%;
+  cursor: default;
+  border-radius: 3px;
+}
+
+.searchInput.active .resultBox li {
+  display: block;
+}
+
+.resultBox li:hover {
+  background: #efefef;
+}
+
+.searchInput .icon {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 35px;
+  width: 35px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 20px;
+  color: #969393;
+  cursor: pointer;
+}
+
+/* ............................Nav bar options 1......................*/
+
+#nav_options {
+  margin: auto 0px auto 50px;
+  display: flex;
+  /* border:  1px solid red; */
+  width: 36%;
+  justify-content: space-around;
+}
+
+#nav_options > div {
+  display: flex;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+#nav_options p {
+  margin: auto;
+  margin-left: 12px;
+}
+
+#nav_options i {
+  font-size: 22px;
+  color: rgb(117, 117, 117);
+  margin: auto 0px;
+}
+.loggedIn{
+  cursor: pointer;
+}
+
+
+
+#logoutPopup{
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right:0 ;
+  margin: 0 auto;
+}
+
+#logoutPopup button{
+  padding: 7px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(207, 17, 44);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+
+/* ............................Nav bar options 2......................*/
+
+#nav_options2 {
+  display: flex;
+  width: 10%;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+}
+
+#like {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#cart {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+
+
+/* //////////////////////////////////....................NAV BAR 2................../////////////////////////////////////// */
+
+.nav2 {
+  background-color: black;
+  padding: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav2 p {
+  color: #fff;
+  font-size: small;
+  cursor: pointer;
+}
+
+
+
+/* ........................Sign Up ............................. */
+
+.signup-popup p {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.signup-popup {
+  width: 40%;
+  max-width: 480px;
+  min-width: 250px;
+  padding: 32px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 2px 4px 8px #6b728040;
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  z-index: 1003;
+
+}
+
+.popupHide {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-50%) scale(0.8);
+  -moz-transform: translateX(-50%) translateY(-50%) scale(0.8);
+  -o-transform: translateX(-50%) translateY(-50%) scale(0.8);
+  -webkit-transform: translateX(-50%) translateY(-50%) scale(0.8)
+}
+
+.header {
+  margin-bottom: 48px;
+}
+
+.header h1 {
+  font-weight: bolder;
+  font-size: 28px;
+  color: #6366f1;
+}
+
+.signup-popup .input {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+
+.signup-popup .input input {
+  width: 100%;
+  border: none;
+  padding: 8px 40px;
+  border-radius: 4px;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font-size: 16px;
+}
+
+.signup-popup .input input::placeholder {
+  color: #6b7280;
+}
+
+.signup-popup .input i {
+  top: 50%;
+  width: 36px;
+  position: absolute;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.signup-popup .signup-btn {
+  width: 100%;
+  border: none;
+  padding: 8px 0;
+  margin: 24px 0;
+  border-radius: 4px;
+  background-color: #6366f1;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.signup-btn:active {
+  background-color: #4f46e5;
+  transition: all 0.3s ease;
+}
+
+.signup-popup .social-icons i {
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  border-radius: 50%;
+  margin: 24px 8px 48px 8px;
+  background-color: gray;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.signup-popup a {
+  color: #6366f1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.signup-popup .ValidationAlert{
+  font-size: small;
+  color: red;
+
+}
+
+
+.black_overlay {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=80);
+}
+
+
+/* * ........................Log In ............................. */ 
+
+.login-popup p {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.login-popup {
+  width: 40%;
+  max-width: 480px;
+  min-width: 250px;
+  padding: 32px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 2px 4px 8px #6b728040;
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  z-index: 1002;
+
+}
+
+
+
+.login-popup .input {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+
+.login-popup .input input {
+  width: 100%;
+  border: none;
+  padding: 8px 40px;
+  border-radius: 4px;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font-size: 16px;
+}
+
+.login-popup.input input::placeholder {
+  color: #6b7280;
+}
+
+.login-popup .input i {
+  top: 50%;
+  width: 36px;
+  position: absolute;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.login-popup .login-btn {
+  width: 100%;
+  border: none;
+  padding: 8px 0;
+  margin: 24px 0;
+  border-radius: 4px;
+  background-color: #6366f1;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-btn:active {
+  background-color: #4f46e5;
+  transition: all 0.3s ease;
+}
+
+.login-popup .social-icons i {
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  border-radius: 50%;
+  margin: 24px 8px 48px 8px;
+  background-color: gray;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-popup a {
+  color: #6366f1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+/* * ........................Admin Log In ............................. */ 
+
+.admin-popup p {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.admin-popup {
+  width: 40%;
+  max-width: 480px;
+  min-width: 250px;
+  padding: 32px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 2px 4px 8px #6b728040;
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  z-index: 1002;
+
+}
+
+
+.admin-popup .input {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+
+.admin-popup .input input {
+  width: 100%;
+  border: none;
+  padding: 8px 40px;
+  border-radius: 4px;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font-size: 16px;
+}
+
+.admin-popup.input input::placeholder {
+  color: #6b7280;
+}
+
+.admin-popup .input i {
+  top: 50%;
+  width: 36px;
+  position: absolute;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.admin-popup .login-btn {
+  width: 100%;
+  border: none;
+  padding: 8px 0;
+  margin: 24px 0;
+  border-radius: 4px;
+  background-color: #6366f1;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-btn:active {
+  background-color: #4f46e5;
+  transition: all 0.3s ease;
+}
+
+.admin-popup .social-icons i {
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  border-radius: 50%;
+  margin: 24px 8px 48px 8px;
+  background-color: gray;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.admin-popup a {
+  color: #6366f1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+/* /////////////..........................Banner Carousel .........................................*/
+
+
+.slider {
+  position: relative;
+}
+
+.slider__container {
+  cursor: grab;
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.slider__container.dragging {
+  scroll-behavior: auto;
+  cursor: grabbing;
+}
+
+.slider__container::-webkit-scrollbar {
+  display: none;
+}
+
+.slider__item {
+  padding: 16px 8px;
+  flex: 0 0 auto;
+  width: calc(100% / 5);
+}
+
+.slider__container[data-step="4"] .slider__item {
+  width: calc(100% / 4);
+}
+
+.slider__container[data-step="3"] .slider__item {
+  width: calc(100% / 3);
+}
+
+.slider__container[data-step="2"] .slider__item {
+  width: calc(100% / 2);
+}
+
+.slider__container[data-step="1"] .slider__item {
+  width: calc(100% / 1);
+}
+
+@media screen and (max-width: 1024px) {
+  .slider__item,
+  .slider__container[data-step="4"] .slider__item {
+    width: calc(100% / 3);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slider__item,
+  .slider__container[data-step="4"] .slider__item,
+  .slider__container[data-step="3"] .slider__item {
+    width: calc(100% / 2);
+  }
+}
+@media screen and (max-width: 480px) {
+  .slider__item,
+  .slider__container[data-step="4"] .slider__item,
+  .slider__container[data-step="3"] .slider__item,
+  .slider__container[data-step="2"] .slider__item {
+    width: calc(100% / 1);
+  }
+}
+
+.slider__control {
+  font-size: 16px;
+  border: .5px solid #000;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #000;
+  background: #fff;
+  cursor: pointer;
+  opacity: .5;
+  transition: all .3s;
+}
+
+.slider__control.prev {
+  left: 16px;
+}
+
+.slider__control.next {
+  right: 16px;
+}
+
+.slider__control:hover {
+  opacity: 1;
+}
+
+.slider__item img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
+}
