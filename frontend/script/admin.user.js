@@ -1,4 +1,4 @@
-const url = "http://localhost:8080"
+const url = "https://light-fawn-pea-coat.cyclic.app/"
 
 displayUsers(`${url}/users`)
 

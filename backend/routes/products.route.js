@@ -74,6 +74,16 @@ productsRoute.delete("/delete/:id",async(req,res)=>{
 })
 
 
+productsRoute.get("/category",async(req,res)=>{
+    c1=req?.query?.c1
+    try {
+        
+    } catch (error) {
+        
+    }
+})
+
+
 module.exports={
     productsRoute
 }

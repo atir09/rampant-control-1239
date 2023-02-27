@@ -1,4 +1,4 @@
-let Url = "http://localhost:8080/"
+let Url = "https://light-fawn-pea-coat.cyclic.app/"
 
 UpdateNav()
 
