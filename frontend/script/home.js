@@ -1,4 +1,4 @@
-let Url = "http://localhost:8080/"
+let Url = "https://puce-attractive-bat.cyclic.app/"
 
 UpdateNav()
 

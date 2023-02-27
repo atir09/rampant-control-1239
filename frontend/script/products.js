@@ -6,7 +6,7 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-let Url = "http://localhost:8080/"
+let Url = "https://puce-attractive-bat.cyclic.app/"
 
 UpdateNav()
 
@@ -390,4 +390,30 @@ function createCard(el){
 function openProduct(el){
     localStorage.setItem("selectedProductId",el.id)
     window.location="singleProduct.html"
+}
+
+
+
+
+// ................Filter by Category......................///////\
+
+
+let categorySelect = document.getElementsByName("category")
+let applyCategoryFilter = document.getElementById("filterbyCategory")
+
+
+applyCategoryFilter.addEventListener("click", applyFilter)
+
+function applyFilter() {
+    let checkedCategory = []
+    categorySelect.forEach((el) => {
+        if (el.checked) {
+          checkedCategory.push(el.value)
+        }
+    })
+    filterbyCategory(checkedCategory)
+}
+
+function filterbyCategory(checkedCategory){
+
 }

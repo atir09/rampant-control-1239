@@ -8,8 +8,10 @@ const productsRoute = express.Router()
 productsRoute.get("/", async(req,res)=>{
     
         try {
-            let data= await productModel.find()
-            res.send({"products":data})
+            res.send("Products Page")
+            // let data= await productModel.find()
+            // res.send({"products":data})
+            // console.log(data)
         } catch (error) {
             console.log(error)
         }
@@ -70,6 +72,16 @@ productsRoute.delete("/delete/:id",async(req,res)=>{
         res.send({"msg":"Product Deleted Successfully"})
     } catch (error) {
         console.log(error)
+    }
+})
+
+
+productsRoute.get("/category",async(req,res)=>{
+    c1=req?.query?.c1
+    try {
+        
+    } catch (error) {
+        
     }
 })
 

@@ -1,4 +1,4 @@
-let Url = "http://localhost:8080/"
+let Url = "https://puce-attractive-bat.cyclic.app/"
 
 UpdateNav()
 DisplayProduct(Url)
@@ -318,7 +318,7 @@ let productsSec = document.getElementById("productSec")
 
 
 function createCard(el) {
-    let card = `<div class="card" id=${el._id}>
+    let card = `<div class="card" >
     <div class="imgContainer"><img
             src=${el.img} alt=""></div>
     <div>
@@ -327,8 +327,10 @@ function createCard(el) {
         <span>&#9733;&#9733;&#9733;&#9733;&#9734;</span>
         <p class="productPrice">Price: $${el.price}</p>
         <p class="small">Ships to India</p>
-        <button class="ATC">Add To Basket</button>
+        <button class="ATC" id=${el._id} onClick="ATC(this)" >Add To Basket</button>
     </div>
 </div> `
     return card
 }
+
+
