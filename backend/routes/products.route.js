@@ -8,10 +8,8 @@ const productsRoute = express.Router()
 productsRoute.get("/", async(req,res)=>{
     
         try {
-            res.send("Products Page")
-            // let data= await productModel.find()
-            // res.send({"products":data})
-            // console.log(data)
+            let data= await productModel.find()
+            res.send({"products":data})
         } catch (error) {
             console.log(error)
         }
