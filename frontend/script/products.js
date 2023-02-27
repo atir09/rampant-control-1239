@@ -1,6 +1,16 @@
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 let Url = "http://localhost:8080/"
 
 UpdateNav()
+
+RenderProducts(`${Url}products`)
 
 
 // ////////////////////////////////Search Functionality//////////////////////////////////////////
@@ -92,33 +102,51 @@ let loginPopup = document.querySelector(".login-popup")
 let loginForm = document.getElementById("loginForm")
 let loginResMsg = document.getElementById("loginResMsg")
 
-let adminlog = document.getElementById("admin")
-let adminloginPopup = document.querySelector(".admin-popup")
-let adminloginForm = document.getElementById("adminloginForm")
-let adminloginResMsg = document.getElementById("adminloginResMsg")
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// /................STicky Navbar...............................//////
+
+////..............................Filter Sticky................................//////
+
+
+window.onscroll = function() {myFunction()};
+
+
+var navbar1 = document.querySelector(".nav");
+var sticky1 = navbar1.offsetTop;
+function myFunction() {
+  if (0 <= sticky1) {
+    navbar1.classList.add("sticky")
+  } else {
+    navbar1.classList.remove("sticky");
+  }
+}
 
 // window.onscroll = function() {myFunction()};
-
-
+// var filter = document.querySelector("#filterSec");
+// var sticky = filter.offsetTop;
+// // console.log(sticky)
+// // function myFunction1() {
+// //   if (window.pageYOffset >= 20) {
+// //     filter.classList.add("sticky1")
+// //   } else {
+// //     filter.classList.remove("sticky1");
+// //   }
+// // }
 // var navbar1 = document.querySelector(".nav");
 // var sticky1 = navbar1.offsetTop;
 // function myFunction() {
-//   if (0 <= sticky1) {
+//   if (00 <= sticky1) {
 //     navbar1.classList.add("sticky")
-//     document.getElementById("display").classList.add("afterFixed")
 //   } else {
 //     navbar1.classList.remove("sticky");
-//     document.getElementById("display").classList.remove("afterFixed")
 //   }
 // }
 
 
-// ////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////////////
 
 // ...........................Singup functionality.................../
 
@@ -134,7 +162,6 @@ sign2.onclick = (e) => {
 }
 
 document.getElementById("fade").onclick = (e) => {
-  adminloginPopup.classList.add("popupHide")
   signupPopup.classList.add("popupHide")
   loginPopup.classList.add("popupHide")
   document.getElementById('fade').style.display = 'none'
@@ -249,6 +276,7 @@ function login(email, password) {
   )
     .then(res => res.json())
     .then((res) => {
+      console.log(res.msg)
       if (res.msg == "Invalid Credentials" || res.msg == "Email Not Registered,Please Sign Up" || res.msg == "Unable to log in") {
         loginResMsg.innerText = res.msg
       } else if (res.msg == "Login Successful") {
@@ -256,7 +284,7 @@ function login(email, password) {
         localStorage.setItem("token", res.token)
 
         // UpdateNav()
-        window.location="index.html"
+        window.location="products.html"
       }
     })
 }
@@ -318,132 +346,48 @@ function UpdateNav() {
     })
 }
 
+// /.......................................Products............................../////
 
-// ....................................Carousel..................................//
+/* <div class="card">
+<div class="imgContainer"><img src="https://www.sephora.com/productimages/sku/s1925114-main-zoom.jpg?imwidth=62" alt=""></div>
+<p class="productBrand">SEPHORA COLLECTION</p>
+<p class="title">Liquid Touch Weightless Foundation</p>
+<span>&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+<p class="productPrice">Price: $20</p>
+<p class="small">Ships to India</p>
+</div> */
 
-const sliders = [...document.querySelectorAll(".slider__container")];
-const sliderControlPrev = [...document.querySelectorAll(".slider__control.prev")];
-const sliderControlNext = [...document.querySelectorAll(".slider__control.next")];
+let productsSec=document.getElementById("productsSec")
 
-sliders.forEach((slider, i) => {
-  let isDragStart = false,
-      isDragging = false,
-      isSlide = false,
-      prevPageX,
-      prevScrollLeft,
-      positionDiff;
+function RenderProducts(url){
+  let  cardList=[];
+  fetch(url)
+  .then(res=>res.json())
+  .then((data)=>{
+    data=data.products
+    data.forEach((el) => {
+      cardList.push(createCard(el))
+    });
+    productsSec.innerHTML=cardList.join(" ")
+  })
+  .catch(error=>console.log(error))
 
-  const sliderItem = slider.querySelector(".slider__item");
-  var isMultislide = (slider.dataset.multislide === 'true');
-
-  sliderControlPrev[i].addEventListener('click', () => {
-    if (isSlide) return;
-    isSlide = true;
-    let slideWidth = isMultislide ? slider.clientWidth : sliderItem.clientWidth;
-    slider.scrollLeft += -slideWidth;
-    setTimeout(function(){ isSlide = false; }, 700);
-  });
-
-  sliderControlNext[i].addEventListener('click', () => {
-    if (isSlide) return;
-    isSlide = true;
-    let slideWidth = isMultislide ? slider.clientWidth : sliderItem.clientWidth ;
-    slider.scrollLeft += slideWidth;
-    setTimeout(function(){ isSlide = false; }, 700);
-  });
-
-  function autoSlide() {
-    if(slider.scrollLeft - (slider.scrollWidth - slider.clientWidth) > -1 || slider.scrollLeft <= 0) return;
-    positionDiff = Math.abs(positionDiff);
-    let slideWidth = isMultislide ? slider.clientWidth : sliderItem.clientWidth;
-    let valDifference = slideWidth - positionDiff;
-    if(slider.scrollLeft > prevScrollLeft) {
-        return slider.scrollLeft += positionDiff > slideWidth / 5 ? valDifference : -positionDiff;
-    }
-    slider.scrollLeft -= positionDiff > slideWidth / 5 ? valDifference : -positionDiff;
-  }
-
-  function dragStart(e) {
-    if (isSlide) return;
-    isSlide = true;
-    isDragStart = true;
-    prevPageX = e.pageX || e.touches[0].pageX;
-    prevScrollLeft = slider.scrollLeft;
-    setTimeout(function(){ isSlide = false; }, 700);
-  }
-
-  function dragging(e) {
-    if(!isDragStart) return;
-    e.preventDefault();
-    isDragging = true;
-    slider.classList.add("dragging");
-    positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
-    slider.scrollLeft = prevScrollLeft - positionDiff;
-  }
-
-  function dragStop() {
-    isDragStart = false;
-    slider.classList.remove("dragging");
-    if(!isDragging) return;
-    isDragging = false;
-    autoSlide();
-  }
-
-  addEventListener("resize", autoSlide);
-  slider.addEventListener("mousedown", dragStart);
-  slider.addEventListener("touchstart", dragStart);
-  slider.addEventListener("mousemove", dragging);
-  slider.addEventListener("touchmove", dragging);
-  slider.addEventListener("mouseup", dragStop);
-  slider.addEventListener("touchend", dragStop);
-  slider.addEventListener("mouseleave", dragStop);
-});
-
-
-
-
-// ........................... admin Login  functionality (Login popup).........................................////
-
-
-
-adminlog.onclick = (e) => {
-  adminloginPopup.classList.toggle("popupHide")
-  document.getElementById('fade').style.display = 'block'
 }
 
-adminloginForm.addEventListener("submit", (e) => {
-  console.log("Clicking")
-  e.preventDefault()
-  console.log(adminloginForm.email.value)
-  let email = adminloginForm.email.value
-  let password = adminloginForm.password.value
+function createCard(el){
+  let card=`<div class="card" id=${el._id} onClick="openProduct(this)" >
+  <div class="imgContainer"><img src=${el.img} alt=""></div>
+  <p class="productBrand">${el.brand}</p>
+  <p class="title">${el.title}</p>
+  <span>&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+  <p class="productPrice">Price: $${el.price}</p>
+  <p class="small">Ships to India</p>
+  </div> `
+  return card
+}
 
-  adminlogin(email, password)
-})
 
-function adminlogin(email, password) {
-  let payload = {
-    email, password
-  }
-  fetch(`${Url}admin/adminLogin`,
-    {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json"
-      },
-      body: JSON.stringify(payload)
-    }
-  )
-    .then(res => res.json())
-    .then((res) => {
-      if (res.msg == "Invalid Credentials" || res.msg == "Email Not Registered,Please Sign Up" || res.msg == "Unable to log in") {
-        adminloginResMsg.innerText = res.msg
-      } else if (res.msg == "Login Successful") {
-        adminloginResMsg.innerText = "Logging In..."
-        localStorage.setItem("token", res.token)
-
-        // UpdateNav()
-        window.location="admin.html"
-      }
-    })
+function openProduct(el){
+    localStorage.setItem("selectedProductId",el.id)
+    window.location="singleProduct.html"
 }

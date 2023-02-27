@@ -10,9 +10,9 @@ const userRoute = express.Router()
 
 ////////////////////////////////........... User Signup..................//////////////////////////////////////////
 userRoute.post("/register", async (req, res) => {
-    const {name,email,password}=req.body
+    const { name, email, password } = req.body
     try {
-        const presentUser =await userModel.find({email:email})
+        const presentUser = await userModel.find({ email: email })
         if (presentUser?.length >= 1) {
             res.json({ "msg": "User already exist, please login" })
         } else {
@@ -22,8 +22,11 @@ userRoute.post("/register", async (req, res) => {
                     res.send({ "msg": "Unable to Register New User" })
                 } else {
                     const user = new userModel({ name, email, password: hash })
-                    user.save()
-                    res.json({ "msg": "User Registered Successfully" })
+                    await user.save()
+
+                    const userdetail=await userModel.find({email:email})
+                    var token = jwt.sign({ userId: userdetail[0]["_id"] }, process.env.jsonKey)
+                    res.send({ "msg": "Sign Up Successful","token":token })
                 }
             });
         }
@@ -44,22 +47,39 @@ userRoute.post("/login", async (req, res) => {
         if (user?.length > 0) {
             bcrypt.compare(password, user[0].password, async (err, result) => {
                 if (result) {
-                    var token = jwt.sign({ userId: user[0]["_id"] }, process.env.jsonKey, { expiresIn: '24h' })
-                    localStorage.setItem("token", token)
-                    res.send({"msg":"Login Successful"})
+                    var token = jwt.sign({ userId: user[0]["_id"] }, process.env.jsonKey)
+                    res.send({ "msg": "Login Successful","token":token,"username":user[0].name })
                 } else {
-                    res.send({"msg":"Invalid Credentials"})
+                    res.send({ "msg": "Invalid Credentials" })
                 }
             });
         } else {
-            res.send({"msg":"Email Not Registered,Please Sign Up"})
+            res.send({ "msg": "Email Not Registered,Please Sign Up" })
         }
     } catch (error) {
         console.log(error)
-        res.send({"msg":"Unable to log in"})
+        res.send({ "msg": "Unable to log in" })
     }
 })
 
+
+userRoute.get("/",async(req,res)=>{
+    try {
+    const users=await userModel.find()
+    res.send({"users":users})
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+userRoute.delete("/:id", async(req,res)=>{
+    try {
+        await userModel.findByIdAndDelete(req.params.id)
+        res.send({"msg":"Deleted Successfully"})
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 
 

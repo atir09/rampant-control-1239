@@ -1,0 +1,252 @@
+*{
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#navPage {
+    padding: 10px 50px;
+    font-size: small;
+    
+}
+
+#navPage span {
+     margin: 0px 7px;
+}
+
+#display {
+    padding: 10px 40px;
+    display: flex;
+    margin-top: 40px;
+   
+}
+.afterFixed{
+    margin-top: 40px;
+}
+
+/* .....................Filter Section..................... */
+
+#filterSec{
+    width: 200px;
+    height: 700px;
+    margin-top: 30px;
+    position: fixed;
+}
+
+.sticky{
+    position: fixed;
+    top:0;
+    width: 100%;
+}
+
+.sticky1 {
+    position: sticky;
+    top: 90px;
+    width: 100%;
+    }
+
+
+/* .....................Filter by Category....................... */
+
+.category{
+    display: grid;
+    gap: 5px;
+    background-color: #fff;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    padding: 20px 0px;
+}
+.category .small{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.category input[type=checkbox]{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin: 0px;
+    margin-right: 10px;
+}
+.category p{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #4A4A4A;
+    margin-bottom: 0px;
+}
+
+#filterbyCategory{
+    width: auto;
+    border: none;
+    position: absolute;
+    color: white;
+    text-align: center;
+    padding:7px 10px  ;
+    border-radius: 10px;
+    font-size: 12px;
+    background: #008cff;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+}
+
+
+/* .....................Filter by Brand....................... */
+
+.brand{
+    display: grid;
+    gap: 5px;
+    background-color: #fff;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    padding: 20px 0px;
+}
+.brand .small{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.brand input[type=checkbox]{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin: 0px;
+    margin-right: 10px;
+}
+.brand p{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #4A4A4A;
+    margin-bottom: 0px;
+}
+
+#filterbyBrand{
+    width: auto;
+    border: none;
+    position: absolute;
+    color: white;
+    text-align: center;
+    padding:7px 10px  ;
+    border-radius: 10px;
+    font-size: 12px;
+    background: #008cff;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+}
+
+
+/* * .....................Filter by Brand.......................  */
+
+.price{
+    display: grid;
+    gap: 5px;
+    background-color: #fff;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    padding: 20px 0px;
+}
+.price .small{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.price input[type=checkbox]{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin: 0px;
+    margin-right: 10px;
+}
+.price p{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #4A4A4A;
+    margin-bottom: 0px;
+}
+
+#filterbyPrice{
+    width: auto;
+    border: none;
+    position: absolute;
+    color: white;
+    text-align: center;
+    padding:7px 10px  ;
+    border-radius: 10px;
+    font-size: 12px;
+    background: #008cff;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+}
+
+
+/* .............................Products........................................ */
+
+#productsSec{
+    width: calc(100vw - 200px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 20px;
+    margin-left: 230px;
+    margin-top: 30px;
+}
+    
+
+.card{
+    /* border: 1px solid red; */
+    width: 230px;
+    padding: 0px 5px;
+    margin: 5px;
+    height: 350px;
+    cursor: pointer;
+}
+.card:hover{
+    border: 1px solid darkblue;
+}
+
+
+.imgContainer{
+    text-align: center;
+    padding: 10px 0px 15px 0px;
+}
+
+.card img{
+    width: 80%;
+}
+
+.productBrand{
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.title{
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.productPrice{
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.small{
+    font-size: 11px;
+
+}

@@ -15,9 +15,8 @@ adminRoute.post("/adminLogin", async (req, res) => {
         const admin = await adminModel.find({ email })
         if (admin?.length > 0) {
             if (password == admin[0]["password"]) {
-                var token = jwt.sign({ adminId: admin[0]["_id"] }, process.env.jsonKey, { expiresIn: '24h' })
-                localStorage.setItem("token", token)
-                res.send({ "msg": "Login Successful" })
+                var token = jwt.sign({ adminId: admin[0]["_id"] }, process.env.jsonKey)
+                res.send({ "msg": "Login Successful","token":token })
             } else {
                 res.send({ "msg": "Invalid Credentials" })
             }

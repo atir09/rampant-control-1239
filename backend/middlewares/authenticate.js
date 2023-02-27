@@ -5,24 +5,28 @@ const {userModel}=require("../model/userModel")
 
 
 function authenticate(req,res,next){
-    const token=req.params.token
-    // const token=localStorage.getItem(token)
-    jwt.verify(token,process.env.jsonKey,async(err, decoded)=> {
+    const token=req.headers?.authorization?.split(" ")[1]
+
+    if(token){
+        jwt.verify(token,process.env.jsonKey,async(err, decoded)=> {
             try {
                 if(decoded){
                     var _id=decoded["userId"]
                     const user=await userModel.findById(_id)
-                    console.log(user)
-                    // localStorage.setItem("user",JSON.stringify(user))
+                    req.body.user=user
                     next()
                 }else{
-                    res.send(err)
+                    res.send({"msg":"Please Log in"})
                 }
             } catch (error) {
-                console.log("There was an error")
-                res.send("There was an error")
+                console.log(error)
+                res.send({"msg":"Please Log in"})
             }
       });
+    }else{
+        res.send({"msg":"Please Log in"})
+    }
+    
 }
 
 

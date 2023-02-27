@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beautify</title>
     <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/utility.css">
     <script src="https://kit.fontawesome.com/84b484b925.js" crossorigin="anonymous"></script>
 </head>
 
@@ -40,7 +41,21 @@
                 <hr>
                 <div id="sign">
                     <i class="fa-solid fa-user"></i>
-                    <p id="username">Sign Up</p>
+                    <p id="signText" class="">Sign Up</p>
+                </div>
+                <section class="loggedIn" id="loggedIn" style="display: none; position: relative;">
+                    <i class="fa-solid fa-user"></i>
+                    <div>
+                        <p>Hi,</p>
+                        <p class="username"></p>
+                    </div>
+                    <div id="logoutPopup" style="display: none;">
+                        <button id="logout">Logout</button>
+                    </div>
+                </section>
+                <div id="admin">
+                    <i class="fa-solid fa-user"></i>
+                    <p id="signText" class="">Admin</p>
                 </div>
             </div>
             <div id="nav_options2">
@@ -54,15 +69,33 @@
         </nav>
 
         <nav class="nav2">
-            <p>New</p>
-            <p>Brands</p>
-            <p>Makeup</p>
-            <p>Skincare</p>
-            <p>Lipsticks</p>
-            <p>Foundation</p>
-            <p>Eyeliner</p>
-            <p>Beauty Under $20</p>
-            <p>Sale & Offers</p>
+            <a href="">
+                <p>New</p>
+            </a>
+            <a href="">
+                <p>Brands</p>
+            </a>
+            <a href="products.html">
+                <p>Makeup</p>
+            </a>
+            <a href="">
+                <p>Skincare</p>
+            </a>
+            <a href="">
+                <p>Lipsticks</p>
+            </a>
+            <a href="">
+                <p>Foundation</p>
+            </a>
+            <a href="">
+                <p>Eyeliner</p>
+            </a>
+            <a href="">
+                <p>Beauty Under $20</p>
+            </a>
+            <a href="">
+                <p>Sale & Offers</p>
+            </a>
         </nav>
     </header>
 
@@ -70,15 +103,16 @@
 
     <!-- ..............................Sign Up Form..................................... -->
 
-    <div class="signup-popup hide">
+    <div class="signup-popup popupHide">
         <div>
             <div class="header">
                 <h1>Create an Account</h1>
+                <h3 id="SignUpResMsg " class="red hide"></h3>
             </div>
             <form id="signupForm">
                 <div class="input">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Name" name="name"/>
+                    <input type="text" placeholder="Name" name="name" />
                     <p id="nameAlert" class="ValidationAlert"></p>
                 </div>
                 <div class="input">
@@ -88,7 +122,7 @@
                 </div>
                 <div class="input">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Password" name="password"/>
+                    <input type="password" placeholder="Password" name="password" />
                     <p id="passwordAlert" class="ValidationAlert"></p>
                 </div>
                 <div class="input">
@@ -102,27 +136,104 @@
         </div>
     </div>
 
+    <div id="fade" class="black_overlay"></div>
+
     <!-- ..............................login Form..................................... -->
 
-    <div class="login-popup hide">
+    <div class="login-popup popupHide">
         <div>
             <div class="header">
                 <h1>Login</h1>
+                <h3 id="adminloginResMsg" class="hide red">Not bale to</h3>
             </div>
             <form id="loginForm">
                 <div class="input">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" placeholder="Email" />
+                    <input name="email" type="email" placeholder="Email" />
                 </div>
                 <div class="input">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Password" />
+                    <input type="password" name="password" placeholder="Password" />
                 </div>
                 <input class="login-btn" type="submit" value="Login" />
             </form>
-            <p>New User?<a id="sign2">  Sign Up</a></p>
+            <p>New User?<a id="sign2"> Sign Up</a></p>
         </div>
     </div>
+
+    <!-- ..............................Admin login Form..................................... -->
+
+    <div class="admin-popup popupHide">
+        <div>
+            <div class="header">
+                <h1>Login</h1>
+                <h3 id="adminloginResMsg" class="hide red"></h3>
+            </div>
+            <form id="adminloginForm">
+                <div class="input">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input name="email" type="email" placeholder="Email" />
+                </div>
+                <div class="input">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password" />
+                </div>
+                <input class="login-btn" type="submit" value="Login" />
+            </form>
+        </div>
+    </div>
+
+
+    <section class="slider">
+        <button class="slider__control prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="slider__control next"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="slider__container" data-multislide="true" data-step="4" style="overflow-y: hidden; height: 400px;">
+            <div class="slider__item">
+                <img src="https://plus.unsplash.com/premium_photo-1677172226935-210bc5bedd77?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="" width="100%">
+            </div>
+            <div class="slider__item">
+                <img src="https://images.unsplash.com/photo-1596205521983-9c372fb3d4f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="" width="100%">
+            </div>
+            <div class="slider__item">
+                <img src="https://images.unsplash.com/photo-1621783605478-f19253b67988?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="" width="100%">
+            </div>
+            <div class="slider__item">
+                <img src="https://images.unsplash.com/photo-1631214499500-2e34edcaccfe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fG1ha2V1cHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="" width="100%">
+            </div>
+            <div class="slider__item">
+                <img src="https://images.unsplash.com/photo-1620464003286-a5b0d79f32c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80"
+                    alt="" width="100%">
+            </div>
+            <div class="slider__item">
+                <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="" width="100%">
+            </div>
+            <div class="slider__item">
+                <img src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
+                    alt="" width="100%">
+            </div>
+            <div class="slider__item">
+                <img src="https://images.unsplash.com/photo-1626895872564-b691b6877b83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1ha2V1cHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="" width="100%">
+            </div>
+            <div class="slider__item">
+                <img src="https://images.unsplash.com/photo-1630084775816-7abb7383ded5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fG1ha2V1cHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="" width="100%">
+            </div>
+            <div class="slider__item">
+                <img src="https://images.unsplash.com/photo-1598452963314-b09f397a5c48?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTh8fG1ha2V1cHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="" width="100%">
+            </div>
+        </div>
+    </section>
+
+    <img src="./img/banners.jpg" alt="" style="width: 100vw;">
+
+    <img src="./img/Screenshot 2023-02-26 233229.jpg" alt="" style="cursor: pointer; width: 100vw;">
 
 </body>
 

@@ -1,0 +1,16 @@
+p {
+  font-weight: lighter;
+  font-size: 1em;
+}
+
+.hide {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.red {
+  color: red;
+}

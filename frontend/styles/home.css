@@ -14,13 +14,22 @@ p {
   font-size: 1em;
 }
 
+.hide{
+  display: none;
+}
 /* .........................Nav Bar................................. */
 
 .nav {
   display: flex;
   padding: 15px 20px;
-  background-color: rgb(192, 220, 241);
+  background-color: rgb(245, 218, 223);
+  /* background-color: rgb(192, 220, 241); */
   /* align-items: center; */
+  z-index: 1000;
+}
+.sticky{
+  position: fixed;
+  top:0;
 }
 
 #logoC {
@@ -130,7 +139,7 @@ p {
   justify-content: space-around;
 }
 
-#nav_options div {
+#nav_options > div {
   display: flex;
   cursor: pointer;
   font-size: 0.9em;
@@ -145,6 +154,28 @@ p {
   font-size: 22px;
   color: rgb(117, 117, 117);
   margin: auto 0px;
+}
+.loggedIn{
+  cursor: pointer;
+}
+
+
+
+#logoutPopup{
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right:0 ;
+  margin: 0 auto;
+}
+
+#logoutPopup button{
+  padding: 7px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(207, 17, 44);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
 }
 
 
@@ -211,10 +242,11 @@ p {
   right: 0;
   margin-top: auto;
   margin-bottom: auto;
+  z-index: 1003;
 
 }
 
-.hide {
+.popupHide {
   visibility: hidden;
   opacity: 0;
   transform: translateX(-50%) translateY(-50%) scale(0.8);
@@ -303,6 +335,22 @@ p {
 
 }
 
+
+.black_overlay {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=80);
+}
+
+
 /* * ........................Log In ............................. */ 
 
 .login-popup p {
@@ -327,11 +375,13 @@ p {
   right: 0;
   margin-top: auto;
   margin-bottom: auto;
+  z-index: 1002;
 
 }
 
 
-.login-popup input {
+
+.login-popup .input {
   position: relative;
   margin-bottom: 24px;
 }
@@ -393,4 +443,206 @@ p {
   color: #6366f1;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+
+/* * ........................Admin Log In ............................. */ 
+
+.admin-popup p {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.admin-popup {
+  width: 40%;
+  max-width: 480px;
+  min-width: 250px;
+  padding: 32px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 2px 4px 8px #6b728040;
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  z-index: 1002;
+
+}
+
+
+.admin-popup .input {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+
+.admin-popup .input input {
+  width: 100%;
+  border: none;
+  padding: 8px 40px;
+  border-radius: 4px;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font-size: 16px;
+}
+
+.admin-popup.input input::placeholder {
+  color: #6b7280;
+}
+
+.admin-popup .input i {
+  top: 50%;
+  width: 36px;
+  position: absolute;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.admin-popup .login-btn {
+  width: 100%;
+  border: none;
+  padding: 8px 0;
+  margin: 24px 0;
+  border-radius: 4px;
+  background-color: #6366f1;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-btn:active {
+  background-color: #4f46e5;
+  transition: all 0.3s ease;
+}
+
+.admin-popup .social-icons i {
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  border-radius: 50%;
+  margin: 24px 8px 48px 8px;
+  background-color: gray;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.admin-popup a {
+  color: #6366f1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+/* /////////////..........................Banner Carousel .........................................*/
+
+
+.slider {
+  position: relative;
+}
+
+.slider__container {
+  cursor: grab;
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.slider__container.dragging {
+  scroll-behavior: auto;
+  cursor: grabbing;
+}
+
+.slider__container::-webkit-scrollbar {
+  display: none;
+}
+
+.slider__item {
+  padding: 16px 8px;
+  flex: 0 0 auto;
+  width: calc(100% / 5);
+}
+
+.slider__container[data-step="4"] .slider__item {
+  width: calc(100% / 4);
+}
+
+.slider__container[data-step="3"] .slider__item {
+  width: calc(100% / 3);
+}
+
+.slider__container[data-step="2"] .slider__item {
+  width: calc(100% / 2);
+}
+
+.slider__container[data-step="1"] .slider__item {
+  width: calc(100% / 1);
+}
+
+@media screen and (max-width: 1024px) {
+  .slider__item,
+  .slider__container[data-step="4"] .slider__item {
+    width: calc(100% / 3);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slider__item,
+  .slider__container[data-step="4"] .slider__item,
+  .slider__container[data-step="3"] .slider__item {
+    width: calc(100% / 2);
+  }
+}
+@media screen and (max-width: 480px) {
+  .slider__item,
+  .slider__container[data-step="4"] .slider__item,
+  .slider__container[data-step="3"] .slider__item,
+  .slider__container[data-step="2"] .slider__item {
+    width: calc(100% / 1);
+  }
+}
+
+.slider__control {
+  font-size: 16px;
+  border: .5px solid #000;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #000;
+  background: #fff;
+  cursor: pointer;
+  opacity: .5;
+  transition: all .3s;
+}
+
+.slider__control.prev {
+  left: 16px;
+}
+
+.slider__control.next {
+  right: 16px;
+}
+
+.slider__control:hover {
+  opacity: 1;
+}
+
+.slider__item img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
 }
